@@ -82,15 +82,15 @@ export function SubscriptionListWireframe() {
   const panelMax = device === "mobile" ? "max-w-[390px] mx-auto" : "";
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8">
+    <main className="py-8">
       {/* Page header */}
       <p className="mb-1 font-mono text-xs font-medium uppercase tracking-wider text-neutral-500">
         Patient Portal wireframes
       </p>
-      <h1 className="font-serif text-3xl font-bold tracking-tight md:text-4xl">
+      <h1 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
         Active subscriptions &amp; upcoming renewals
       </h1>
-      <p className="mt-2 max-w-3xl text-neutral-600">
+      <p className="mt-2 max-w-2xl text-sm text-neutral-600">
         Main view after login: when patients are charged next and how much.
         Current vs proposed side-by-side with cadence and pricing aligned to
         checkout. Single product per subscription card.
@@ -178,7 +178,7 @@ export function SubscriptionListWireframe() {
         <span className="rounded-md bg-[#E8623A] px-3 py-1 text-xs font-bold uppercase text-white">
           Step 3
         </span>
-        <span className="text-lg font-semibold text-[#141B34]">
+        <span className="text-base font-semibold text-[#141B34]">
           Subscription list (home)
         </span>
       </div>
@@ -221,7 +221,7 @@ export function SubscriptionListWireframe() {
                   Active
                 </span>
               </div>
-              <p className="mt-2 text-lg font-semibold text-red-700">
+              <p className="mt-2 text-base font-semibold text-red-700">
                 {p.retailMo}
                 <span className="text-xs font-normal text-neutral-500">
                   {" "}
@@ -349,7 +349,7 @@ export function SubscriptionListWireframe() {
               <Callout n={1} className="absolute -left-3 -top-3" />
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div>
-                  <h3 className="text-lg font-semibold">{p.name}</h3>
+                  <h3 className="text-base font-semibold">{p.name}</h3>
                   <p className="text-sm text-neutral-500">{p.category}</p>
                 </div>
                 <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-900">
@@ -368,7 +368,7 @@ export function SubscriptionListWireframe() {
               {/* Price row */}
               <div className="mt-3 flex flex-wrap items-baseline gap-2">
                 <span className="text-sm text-neutral-600">Per cycle</span>
-                <span className="text-2xl font-bold tracking-tight">
+                <span className="text-xl font-bold tracking-tight">
                   ${p.orderPrice.toFixed(2)}
                 </span>
                 <EngTag>orderPrice</EngTag>
@@ -428,7 +428,7 @@ export function SubscriptionListWireframe() {
                   <span>{secondaryCard.orderCycleDisplay}</span>
                   <EngTag>orderCycle</EngTag>
                 </div>
-                <p className="mt-1 text-lg font-bold">
+                <p className="mt-1 text-base font-bold">
                   ${secondaryCard.orderPrice.toFixed(2)}{" "}
                   <EngTag>orderPrice</EngTag>
                 </p>

@@ -16,9 +16,9 @@ export function WireframeChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen bg-[#f4f4f5] text-[15px] text-[#141B34]">
+    <div className="min-h-screen bg-white text-[14px] text-[#141B34]">
       <header className="border-b border-neutral-200 bg-white">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-3">
           <div className="flex min-w-0 flex-1 flex-wrap items-center gap-3 sm:gap-4">
             <Link
               href="/"
@@ -68,7 +68,7 @@ export function WireframeChrome({ children }: { children: React.ReactNode }) {
           </nav>
         </div>
       </header>
-      <div className="mx-auto w-full max-w-5xl px-3 sm:px-4">{children}</div>
+      <div className="mx-auto w-full max-w-5xl px-4">{children}</div>
     </div>
   );
 }

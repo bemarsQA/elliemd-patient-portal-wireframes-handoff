@@ -74,14 +74,14 @@ export function OrderDetailWireframe() {
   const panelMax = device === "mobile" ? "max-w-[390px] mx-auto" : "";
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8">
+    <main className="py-8">
       <p className="mb-1 font-mono text-xs font-medium uppercase tracking-wider text-neutral-500">
         Patient Portal wireframes
       </p>
-      <h1 className="font-serif text-3xl font-bold tracking-tight md:text-4xl">
-        Order / subscription detail
+      <h1 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
+        Order detail (subscription order)
       </h1>
-      <p className="mt-2 max-w-3xl text-neutral-600">
+      <p className="mt-2 max-w-2xl text-sm text-neutral-600">
         Full picture when a patient clicks into a specific subscription: what
         they pay per cycle, when the next charge hits, value breakdown, charge
         history, and how to manage. Proposed view mirrors checkout line-item
@@ -143,7 +143,7 @@ export function OrderDetailWireframe() {
         <span className="rounded-md bg-[#E8623A] px-3 py-1 text-xs font-bold uppercase text-white">
           Step 4
         </span>
-        <span className="text-lg font-semibold text-[#141B34]">
+        <span className="text-base font-semibold text-[#141B34]">
           Order / subscription detail
         </span>
       </div>
@@ -186,11 +186,11 @@ export function OrderDetailWireframe() {
               <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
                 <div className="rounded bg-red-50 p-2 text-red-800">
                   <p className="font-medium">Per Month</p>
-                  <p className="text-lg font-semibold">{p.retailMo}</p>
+                  <p className="text-base font-semibold">{p.retailMo}</p>
                 </div>
                 <div className="rounded bg-red-50 p-2 text-red-800">
                   <p className="font-medium">Full Price</p>
-                  <p className="text-lg font-semibold">
+                  <p className="text-base font-semibold">
                     ${p.orderPrice.toFixed(2)}
                   </p>
                 </div>
@@ -261,7 +261,7 @@ export function OrderDetailWireframe() {
               </p>
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div>
-                  <h3 className="text-lg font-semibold">{p.name}</h3>
+                  <h3 className="text-base font-semibold">{p.name}</h3>
                   <p className="text-sm text-neutral-500">{p.category}</p>
                 </div>
                 <span className="rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-xs font-medium text-neutral-700">
@@ -277,7 +277,7 @@ export function OrderDetailWireframe() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-neutral-600">Per cycle</span>
-                  <span className="flex items-center gap-2 text-xl font-bold">
+                  <span className="flex items-center gap-2 text-lg font-bold">
                     ${p.orderPrice.toFixed(2)} <EngTag>orderPrice</EngTag>
                   </span>
                 </div>
@@ -347,7 +347,7 @@ export function OrderDetailWireframe() {
                       {p.nextChargeExample}
                     </span>
                   </div>
-                  <span className="text-lg font-bold text-[#141B34]">
+                  <span className="text-base font-bold text-[#141B34]">
                     ${p.orderPrice.toFixed(2)}
                   </span>
                 </div>

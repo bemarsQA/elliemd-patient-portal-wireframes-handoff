@@ -31,14 +31,14 @@ function SourceCard({
 export default function SourcesPage() {
   return (
     <WireframeChrome>
-      <main className="mx-auto max-w-6xl px-4 py-8">
+      <main className="py-8">
         <p className="mb-1 font-mono text-xs font-medium uppercase tracking-wider text-neutral-500">
           Patient Portal · Sources
         </p>
-        <h1 className="font-serif text-3xl font-bold tracking-tight md:text-4xl">
+        <h1 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
           Sources &amp; traceability
         </h1>
-        <p className="mt-2 max-w-3xl text-neutral-600">
+        <p className="mt-2 max-w-2xl text-sm text-neutral-600">
           Reference materials and decision traceability for Patient Portal
           wireframes. Citations limited to files under{" "}
           <code className="rounded bg-neutral-200 px-1 text-xs">data/</code>{" "}

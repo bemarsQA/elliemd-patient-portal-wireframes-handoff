@@ -58,14 +58,14 @@ function StatusBadge({
 export default function EdgeStatesPage() {
   return (
     <WireframeChrome>
-      <main className="mx-auto max-w-6xl px-4 py-8">
+      <main className="py-8">
         <p className="mb-1 font-mono text-xs font-medium uppercase tracking-wider text-neutral-500">
           Patient Portal · Edge cases
         </p>
-        <h1 className="font-serif text-3xl font-bold tracking-tight md:text-4xl">
+        <h1 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
           Edge states
         </h1>
-        <p className="mt-2 max-w-3xl text-neutral-600">
+        <p className="mt-2 max-w-2xl text-sm text-neutral-600">
           Every realistic portal state needs a designed response. These
           wireframe mockups show what patients see beyond the happy path:
           empty lists, paused subscriptions, payment failures, reassessment
@@ -77,7 +77,7 @@ export default function EdgeStatesPage() {
           <span className="rounded-md bg-[#E8623A] px-3 py-1 text-xs font-bold uppercase text-white">
             Step 5
           </span>
-          <span className="text-lg font-semibold text-[#141B34]">
+          <span className="text-base font-semibold text-[#141B34]">
             Edge states and empty states
           </span>
         </div>
@@ -96,7 +96,7 @@ export default function EdgeStatesPage() {
                   &#8709;
                 </span>
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-[#141B34]">
+              <h3 className="mt-4 text-base font-semibold text-[#141B34]">
                 No active subscriptions
               </h3>
               <p className="mx-auto mt-2 max-w-sm text-sm text-neutral-600">
@@ -178,7 +178,7 @@ export default function EdgeStatesPage() {
                 <span>Every 8 weeks</span>
                 <EngTag>orderCycle</EngTag>
               </div>
-              <p className="mt-1 text-lg font-bold">
+              <p className="mt-1 text-base font-bold">
                 $478.00 <EngTag>orderPrice</EngTag>
               </p>
               <p className="text-xs text-neutral-500">$8.54/day</p>
@@ -416,7 +416,7 @@ export default function EdgeStatesPage() {
               <p className="mt-1 text-xs text-neutral-500">
                 8 week supply, 2 week break
               </p>
-              <p className="mt-2 text-lg font-bold">
+              <p className="mt-2 text-base font-bold">
                 $548.00 <EngTag>orderPrice</EngTag>
               </p>
               <p className="text-xs text-neutral-500">$7.83/day</p>
@@ -466,7 +466,7 @@ export default function EdgeStatesPage() {
                 <span>Every 12 weeks</span>
                 <EngTag>orderCycle</EngTag>
               </div>
-              <p className="mt-1 text-lg font-bold">
+              <p className="mt-1 text-base font-bold">
                 $897.00 <EngTag>orderPrice</EngTag>
               </p>
               <p className="text-xs text-neutral-500">$10.68/day</p>
