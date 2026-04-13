@@ -1,0 +1,76 @@
+# PSQ Stack Rules
+
+Source: V1_Product_Selection_Quiz.xlsx
+Controls which compounds can be recommended together.
+
+- DISCLAIMER POPUP AT BEGINNING OF QUIZ
+Before you get started, we want to make sure our programs are a safe fit for you. Unfortunately, we're unable to provide personalized recommendations if any of th
+- Only one compound per exclusion group may appear in the final recommendation. If multiple compounds from the same group score into the recommendation, surface only the highest-scoring one. | Stack Exclusion Rules
+- Exclusion Group | Peptide / Compound
+- GHRH | Tesamorelin/KPV, Tesamorelin/Ipamorelin, Sermorelin, Sermorelin (capsules)
+- GLP1 | GLP-1, GLP-1/GIP, GLP-1 Microdose, GLP-1/GIP Microdose, GLP-1 + B12, GLP-1 + Glycine, GLP-1 + L-Carnitine, GLP-1/GIP + B12, GLP-1/GIP + Glycine, GLP-1/GIP + L-Carnitine, GLP-1 (oral drops), GLP-1/GIP 
+- B12 | B12, GLP-1, GLP-1/GIP, GLP-1 Microdose, GLP-1/GIP Microdose, GLP-1 + B12, GLP-1 + Glycine, GLP-1 + L-Carnitine, GLP-1/GIP + B12, GLP-1/GIP + Glycine, GLP-1/GIP + L-Carnitine, GLP-1 (oral drops), GLP-1
+- Sermorelin Form | Sermorelin, Sermorelin (capsules)
+- NAD+ Form | NAD+, NAD+ (nasal spray), Synapsin
+- BPC-157/TB-500 Form | BPC-157/TB-500, BPC-157/TB-500 (capsules)
+- PT-141 | PT-141, Tadalafil/Oxytocin/PT-141 (troche), Tadalafil/Oxytocin/PT-141 (nasal spray)
+- Ipamorelin vs KPV Decision Rule | Condition | Result
+- Immune Strength & Inflammation Support selected in Q1 (any ranking) | Recommend Tesamorelin/KPV. Remove Tesamorelin/Ipamorelin from scoring
+- Immune Strength & Inflammation Support NOT selected in Q1 | Recommend Tesamorelin/Ipamorelin. Remove Tesamorelin/KPV from scoring
+- Delivery Method: Only one delivery method allowed per peptide/compound (injection, nasal spray, capsules, troches). Apply after scoring, before displaying results. See table | Delivery Method Swap Rules
+- If user selects "No injections": Remove all injection-only compounds from the recommendation pool. Show what remains. Add a message: "Some compounds we'd recommend for your goals require injection. Go | Injection SKU (Primary / Default) | Non-Injection SKU (Fallback) | Non-Injection Form
+- If user selects "Prefer non-injection": Show injection compounds in the optimized tier only, flagged with "requires injection." Keep non-injection compounds in must-have and nice-to-have tiers. | BPC-157/TB-500 | BPC-157/TB-500 (capsules) | Capsule
+- User selects "No injections": Remove all injection compounds from the entire ranked list. Recommendation is built entirely from what remains. If the resulting list has fewer than two compounds, show m | NAD+ | NAD+ (nasal spray) | Nasal spray
+- GLP-1 + B12 | GLP-1 + NAD+ (oral drops) | Oral drops
+- GLP-1 + Glycine | GLP-1 + NAD+ (oral drops) | Oral drops
+- GLP-1 + L-Carnitine | GLP-1 + NAD+ (oral drops) | Oral drops
+- GLP-1/GIP + B12 | GLP-1/GIP + NAD+ (oral drops) | Oral drops
+- GLP-1/GIP + Glycine | GLP-1/GIP + NAD+ (oral drops) | Oral drops
+- GLP-1/GIP + L-Carnitine | GLP-1/GIP + NAD+ (oral drops) | Oral drops
+- Sermorelin | Sermorelin (capsules) | Capsule
+- PT-141 | Tadalafil/Oxytocin/PT-141 (nasal spray), Tadalafil/Oxytocin/PT-141 (troche) | Nasal spray or Troche depending on user selection
+- GHK-Cu | Tretinoin/GHK-Cu/NAD+/Vitamin C MAP (topical cream) | Topical
+- Contraindication Pass Logic | Contraindication Rules
+- 1. Run scoring engine, Stack Rules deduplication, and delivery form filter. Generate proposed compound list. Do not show to user yet.
+2. Cross-reference proposed compound list against Compounds column | Compounds | Condition / Checkbox Label
+- GLP-1, GLP-1/GIP, GLP-1 Microdose, GLP-1/GIP Microdose, GLP-1 + B12, GLP-1 + Glycine, GLP-1 + L-Carnitine, GLP-1/GIP + B12, GLP-1/GIP + Glycine, GLP-1/GIP + L-Carnitine, GLP-1 (oral drops), GLP-1/GIP  | Type 1 Diabetes
+- GLP-1, GLP-1/GIP, GLP-1 Microdose, GLP-1/GIP Microdose, GLP-1 + B12, GLP-1 + Glycine, GLP-1 + L-Carnitine, GLP-1/GIP + B12, GLP-1/GIP + Glycine, GLP-1/GIP + L-Carnitine, GLP-1 (oral drops), GLP-1/GIP  | Personal or family history of medullary thyroid cancer or MEN2
+- GLP-1, GLP-1/GIP, GLP-1 Microdose, GLP-1/GIP Microdose, GLP-1 + B12, GLP-1 + Glycine, GLP-1 + L-Carnitine, GLP-1/GIP + B12, GLP-1/GIP + Glycine, GLP-1/GIP + L-Carnitine, GLP-1 (oral drops), GLP-1/GIP  | History of pancreatitis
+- GLP-1, GLP-1/GIP, GLP-1 Microdose, GLP-1/GIP Microdose, GLP-1 + B12, GLP-1 + Glycine, GLP-1 + L-Carnitine, GLP-1/GIP + B12, GLP-1/GIP + Glycine, GLP-1/GIP + L-Carnitine, GLP-1 (oral drops), GLP-1/GIP  | Gallbladder disease
+- Sermorelin, Sermorelin (capsules), Tesamorelin/Ipamorelin, Tesamorelin/KPV | Diabetic retinopathy
+- PT-141, Tadalafil/Oxytocin/PT-141 (nasal spray), Tadalafil/Oxytocin/PT-141 (troche) | History of heart attack, stroke, or TIA
+- PT-141, Tadalafil/Oxytocin/PT-141 (nasal spray), Tadalafil/Oxytocin/PT-141 (troche) | Uncontrolled high blood pressure
+- PT-141, Tadalafil/Oxytocin/PT-141 (nasal spray), Tadalafil/Oxytocin/PT-141 (troche) | Coronary artery disease or unstable angina
+- PT-141, Tadalafil/Oxytocin/PT-141 (nasal spray), Tadalafil/Oxytocin/PT-141 (troche) | Currently taking nitrate medications (e.g. nitroglycerin)
+- PT-141, Tadalafil/Oxytocin/PT-141 (nasal spray), Tadalafil/Oxytocin/PT-141 (troche) | Asthma or COPD
+- Methylene Blue (capsules) | Currently taking an SSRI (e.g. Lexapro, Zoloft, Prozac)
+- Methylene Blue (capsules) | Currently taking an SNRI (e.g. Cymbalta, Effexor)
+- Methylene Blue (capsules) | Currently taking an MAOI antidepressant
+- Methylene Blue (capsules) | G6PD deficiency
+- TA-1 | Currently taking immunosuppressants (e.g. prednisone, methotrexate)
+- TA-1 | Organ transplant on anti-rejection medications
+- Glutathione | Asthma or chronic lung condition
+- Sermorelin, Sermorelin (capsules) | Binge drinking (4+ drinks at one time) or current opiate use
+- NAD+ (nasal spray) | Asthma or COPD
+- DSIP | Uncontrolled seizure disorder
+- All compounds | None of the above
+- Mandatory Promotion | Sexual Health Mandatory Promotion
+- Sexual Health & Libido and Skin & Hair are intent-driven categories. If a user selects either, the winning compound must always appear in their protocol regardless of its scored rank relative to other | Condition | Result
+- Sexual Health & Libido selected in Q1, not ranked in Q2 | Winning Sexual Health compound → Optimized
+- Ranked third in Q2 | Nice to Have
+- Ranked second in Q2 | Nice to Have
+- Ranked first in Q2 | Must Have
+- Skin & Hair Mandatory Promotion
+- Condition | Result
+- Skin & Hair selected in Q1, not ranked in Q2 | EllieVate Skin+ → Optimized only if Q20 answers include clarity, healing, or overall skin
+- Ranked third in Q2 | Nice to Have
+- Ranked second in Q2 | Nice to Have
+- Ranked first in Q2 | Must Have
+- V2 Stack Rules Draft In Progress
+- Exclusion Group | Peptide / Compound
+- GLP1 | Semaglutide, tirzepatide
+- GHRH | CJC-1295, Sermorelin, Tesamorelin
+- IGF | IGF-1, PEG-MGF, CJC-1295, Sermorelin, Tesamorelin
+- GH Secretagogue | IGF-1, PEG-MGF, Ipamorelin
+- Cardio risk | VIP, Tadalafil
+- Melanocortin | Melanotan II, PT-141
