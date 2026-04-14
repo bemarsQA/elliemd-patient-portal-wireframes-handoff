@@ -10,7 +10,10 @@ import {
   wfToggle,
   wfToggleDevice,
 } from "@/lib/wireframe-ui";
-import { IconMonitor, IconPhone } from "@/components/wireframes/PreviewDeviceIcons";
+import {
+  IconMonitor,
+  IconPhone,
+} from "@/components/wireframes/PreviewDeviceIcons";
 
 export function OrderDetailWireframe() {
   const [productKey, setProductKey] = useState<ProductKey>("sem12");
@@ -27,7 +30,7 @@ export function OrderDetailWireframe() {
         Order detail (subscription order)
       </h1>
       <p className="mt-2 max-w-3xl text-neutral-600">
-        <strong>Patient Portal v2 Figma frames</strong> §D, §G:{" "}
+        <strong>Patient Portal v2 Figma frames</strong> (Frame D, Frame G):{" "}
         <strong>Per Month / Full Price</strong> columns,{" "}
         <strong>Total Price</strong> without cycle context, and{" "}
         <strong>installment-style</strong> schedules. Proposed view mirrors
@@ -98,7 +101,7 @@ export function OrderDetailWireframe() {
       </p>
 
       <div
-        className={`mt-4 grid gap-6 lg:grid-cols-2 ${device === "mobile" ? "lg:grid-cols-1" : ""}`}
+        className={`mt-4 grid items-start gap-6 lg:grid-cols-2 ${device === "mobile" ? "lg:grid-cols-1" : ""}`}
       >
         <section
           className={`rounded-2xl border-2 border-red-300 bg-red-50/80 p-4 shadow-sm ${panelMax}`}
@@ -113,9 +116,9 @@ export function OrderDetailWireframe() {
           </div>
           <div className="mb-3 rounded-lg border border-dashed border-red-300 bg-white/80 p-3 text-xs text-red-800">
             <strong>1</strong> Per Month vs Full Price columns ·{" "}
-            <strong>2</strong> No orderCycle on order · <strong>3</strong> “Current
-            Payment Plan” + 1st/2nd/3rd reads monthly · <strong>4</strong> Next
-            shipment mixed with billing
+            <strong>2</strong> No orderCycle on order · <strong>3</strong>{" "}
+            “Current Payment Plan” + 1st/2nd/3rd reads monthly ·{" "}
+            <strong>4</strong> Next shipment mixed with billing
           </div>
           <div className="space-y-3 rounded-xl border border-red-200 bg-white p-4 text-sm">
             <div className="flex flex-wrap justify-between gap-2 border-b border-neutral-100 pb-3">
@@ -144,7 +147,7 @@ export function OrderDetailWireframe() {
               </div>
               <p className="mt-2 text-xs text-neutral-500">
                 Confusing retail framing vs true cycle charge (Patient Portal v2
-                Figma frames §D).
+                Figma Frame D).
               </p>
             </div>
             <div className="flex justify-between border-t border-neutral-100 pt-3 font-semibold">
@@ -160,7 +163,7 @@ export function OrderDetailWireframe() {
               </ul>
               <p className="mt-2 text-red-800">
                 Reads like installments, not orderCycle renewals (Patient Portal
-                v2 Figma frames §E).
+                v2 Figma Frame E).
               </p>
             </div>
             <p className="text-xs text-neutral-600">
@@ -218,17 +221,24 @@ export function OrderDetailWireframe() {
               </div>
               <div className="mt-2 flex flex-wrap items-baseline gap-2">
                 <span className="text-neutral-600">Amount (this order)</span>
-                <span className="text-xl font-bold">${p.orderPrice.toFixed(2)}</span>
+                <span className="text-xl font-bold">
+                  ${p.orderPrice.toFixed(2)}
+                </span>
                 <EngTag>orderPrice</EngTag>
               </div>
               <p className="mt-1 text-xs text-neutral-500">{p.perDay}</p>
               <p className="mt-3 text-xs text-neutral-700">
-                <span className="text-neutral-600">Prescription valid through</span>{" "}
-                <span className="font-medium">{p.prescriptionValidThroughExample}</span>{" "}
+                <span className="text-neutral-600">
+                  Prescription valid through
+                </span>{" "}
+                <span className="font-medium">
+                  {p.prescriptionValidThroughExample}
+                </span>{" "}
                 <EngTag>prescriptionCycle</EngTag>
                 <span className="text-neutral-500">
                   {" "}
-                  (example: 52-week validity from anchor; align to program rules)
+                  (example: 52-week validity from anchor; align to program
+                  rules)
                 </span>
               </p>
             </div>
@@ -246,8 +256,8 @@ export function OrderDetailWireframe() {
                 <li>Shipping (Free)</li>
               </ul>
               <p className="mt-2 text-xs text-neutral-600">
-                Mirrors checkout / PDP value stack so renewals reinforce the same
-                story.
+                Mirrors checkout / PDP value stack so renewals reinforce the
+                same story.
               </p>
             </div>
 
@@ -311,7 +321,8 @@ export function OrderDetailWireframe() {
             <div className="rounded-lg border border-dashed border-emerald-200 bg-emerald-50/40 p-3 text-xs">
               <p className="font-semibold text-emerald-900">Fulfillment</p>
               <p className="mt-1 text-neutral-700">
-                Estimated delivery: Feb 2, 2026 · Carrier tracking when available
+                Estimated delivery: Feb 2, 2026 · Carrier tracking when
+                available
               </p>
               <p className="mt-1 text-neutral-500">
                 Billing vs fulfillment (portal UX);{" "}
@@ -319,7 +330,9 @@ export function OrderDetailWireframe() {
                   prescriptionCycle
                 </code>{" "}
                 vs{" "}
-                <code className="rounded bg-neutral-100 px-1 text-xs">orderCycle</code>{" "}
+                <code className="rounded bg-neutral-100 px-1 text-xs">
+                  orderCycle
+                </code>{" "}
                 in data/product-pricing.md.
               </p>
             </div>
@@ -391,7 +404,9 @@ export function OrderDetailWireframe() {
               <th className="p-3 font-semibold">#</th>
               <th className="p-3 font-semibold">Field / pattern</th>
               <th className="p-3 font-semibold">Delta</th>
-              <th className="p-3 font-semibold">Patient Portal v2 Figma frames</th>
+              <th className="p-3 font-semibold">
+                Patient Portal v2 Figma frames
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-neutral-100">
@@ -402,7 +417,9 @@ export function OrderDetailWireframe() {
                 Replace with <EngTag>orderPrice</EngTag> +{" "}
                 <EngTag>orderCycle</EngTag> hero block
               </td>
-              <td className="p-3 text-xs">§D · Semaglutide order detail</td>
+              <td className="p-3 text-xs">
+                Frame D · Semaglutide order detail
+              </td>
             </tr>
             <tr>
               <td className="p-3 font-mono">2</td>
@@ -411,16 +428,16 @@ export function OrderDetailWireframe() {
                 Keep for order totals; pair with cycle context for subscription
                 rows
               </td>
-              <td className="p-3 text-xs">§H · Orders list</td>
+              <td className="p-3 text-xs">Frame H · Orders list</td>
             </tr>
             <tr>
               <td className="p-3 font-mono">3</td>
               <td className="p-3">Payment plan · 1st/2nd/3rd</td>
               <td className="p-3">
-                Standard sub: renewal schedule + next charge; finance-only lane if
-                applicable
+                Standard sub: renewal schedule + next charge; finance-only lane
+                if applicable
               </td>
-              <td className="p-3 text-xs">§E · Manage subscription</td>
+              <td className="p-3 text-xs">Frame E · Manage subscription</td>
             </tr>
             <tr>
               <td className="p-3 font-mono">4</td>
@@ -428,16 +445,20 @@ export function OrderDetailWireframe() {
               <td className="p-3">
                 Add next charge; keep shipment under Fulfillment
               </td>
-              <td className="p-3 text-xs">§B Home, §J Protein powder</td>
+              <td className="p-3 text-xs">
+                Frame B Home, Frame J Protein powder
+              </td>
             </tr>
             <tr>
               <td className="p-3 font-mono">5</td>
               <td className="p-3">Prescription validity</td>
               <td className="p-3">
-                Show script window via <EngTag>prescriptionCycle</EngTag>; do not
-                replace billing cadence
+                Show script window via <EngTag>prescriptionCycle</EngTag>; do
+                not replace billing cadence
               </td>
-              <td className="p-3 text-xs">Design context §11; Step 4 spec</td>
+              <td className="p-3 text-xs">
+                Design context section 11; Step 4 spec
+              </td>
             </tr>
             <tr>
               <td className="p-3 font-mono">6</td>
@@ -451,7 +472,8 @@ export function OrderDetailWireframe() {
               <td className="p-3 font-mono">7</td>
               <td className="p-3">Renewal timeline + charge history</td>
               <td className="p-3">
-                Past charges + this order + scheduled next; table for scanability
+                Past charges + this order + scheduled next; table for
+                scanability
               </td>
               <td className="p-3 text-xs">Step 4 · renewal clarity</td>
             </tr>
@@ -484,12 +506,12 @@ export function OrderDetailWireframe() {
             separated billing cadence.
           </li>
           <li>
-            What&apos;s included lists medication supply length, $0 consult, free
-            shipping (checkout parity).
+            What&apos;s included lists medication supply length, $0 consult,
+            free shipping (checkout parity).
           </li>
           <li>
-            Renewal timeline shows prior renewals, this order, and scheduled next
-            charge with amounts.
+            Renewal timeline shows prior renewals, this order, and scheduled
+            next charge with amounts.
           </li>
           <li>
             Charge history table lists past and current paid rows for this
@@ -506,7 +528,7 @@ export function OrderDetailWireframe() {
           </li>
           <li>
             CTAs consistent: View subscription vs View product detail (Patient
-            Portal v2 Figma frames §H).
+            Portal v2 Figma Frame H).
           </li>
         </ul>
       </div>
