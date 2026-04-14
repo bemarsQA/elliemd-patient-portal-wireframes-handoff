@@ -434,7 +434,10 @@ export function SubscriptionListWireframe() {
                   Added <EngTag>orderCycle</EngTag> + “Every N weeks” from
                   displayInterval()
                 </td>
-                <td className="p-3">Matches PDP &amp; checkout; removes monthly confusion</td>
+                <td className="p-3">
+                  Matches PDP &amp; checkout; removes billing-cycle vs display-window
+                  confusion
+                </td>
                 <td className="p-3 text-xs text-neutral-600">
                   data/product-pricing.md
                 </td>
@@ -443,7 +446,7 @@ export function SubscriptionListWireframe() {
                 <td className="p-3 font-mono">2</td>
                 <td className="p-3">Per-cycle price</td>
                 <td className="p-3">
-                  Prominent <EngTag>orderPrice</EngTag> replaces retail/mo hero
+                  Prominent <EngTag>orderPrice</EngTag> replaces retail-interval hero
                 </td>
                 <td className="p-3">Patient sees actual renewal charge amount</td>
                 <td className="p-3 text-xs">

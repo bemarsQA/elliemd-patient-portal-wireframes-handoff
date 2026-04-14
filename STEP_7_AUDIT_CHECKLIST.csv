@@ -1,0 +1,18 @@
+Area,Check,Status,Notes
+Cross-contamination,No references to other Linear projects in wireframe content,PASS,Scan app components lib
+Cross-contamination,No team-member names in wireframe UI,PASS,
+Terminology,Zero monthly per month retailPrice in PROPOSED panels,PASS,Legacy only in Today Current or Sources reference rows
+Terminology,Cadence labels Every N weeks style,PASS,
+Terminology,Prices use orderPrice in proposed surfaces,PASS,
+Terminology,CTA labels and Section 13 lock documented,PASS,Sources Section 13 callout
+Price verification,NAD+ 478 8 weeks 8.54 per day,PASS,SKU nad_plus_nasal_spray in Sources table
+Price verification,Semaglutide Tier 1 897 12 weeks 10.68 per day,PASS,SKU semaglutide_tier_1
+Price verification,Row-level SKU verification table,PASS,Sources table plus mots_c_injection reference row
+Completeness,Desktop and mobile QA every route,PASS,ReviewViewportToggle plus Step 3 and Step 4 toggles
+Completeness,8-week and 12-week examples,PASS,
+Completeness,Edge states coverage,PARTIAL,11 panels not every program variant
+Completeness,Sources decision and proposals tables,PASS,
+Completeness,Engineering touchpoints,PASS,
+Structure,Self-contained review site,PASS,
+Structure,Numbered annotations Step 3 through 5,PASS,
+Structure,Acceptance criteria per screen,PASS,Overview Edge Sources and Step 3 4

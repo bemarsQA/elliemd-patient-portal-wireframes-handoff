@@ -197,12 +197,19 @@ export function OrderDetailWireframe() {
                 Paid
               </span>
             </div>
+
             <div className="rounded-lg border border-neutral-200 p-3">
-              <div className="flex flex-wrap items-start justify-between gap-2">
+              <p className="text-xs font-semibold uppercase text-neutral-500">
+                Subscription summary
+              </p>
+              <div className="mt-2 flex flex-wrap items-start justify-between gap-2">
                 <div>
                   <p className="font-medium">{p.name}</p>
                   <p className="text-xs text-neutral-500">{p.category}</p>
                 </div>
+                <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-800">
+                  Active
+                </span>
               </div>
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <span className="text-neutral-600">Billing cadence</span>
@@ -215,19 +222,92 @@ export function OrderDetailWireframe() {
                 <EngTag>orderPrice</EngTag>
               </div>
               <p className="mt-1 text-xs text-neutral-500">{p.perDay}</p>
+              <p className="mt-3 text-xs text-neutral-700">
+                <span className="text-neutral-600">Prescription valid through</span>{" "}
+                <span className="font-medium">{p.prescriptionValidThroughExample}</span>{" "}
+                <EngTag>prescriptionCycle</EngTag>
+                <span className="text-neutral-500">
+                  {" "}
+                  (example: 52-week validity from anchor; align to program rules)
+                </span>
+              </p>
             </div>
-            <div className="rounded-lg bg-neutral-50 p-3">
+
+            <div className="rounded-lg border border-sky-100 bg-sky-50/50 p-3">
+              <p className="text-xs font-semibold uppercase text-sky-900">
+                What&apos;s included
+              </p>
+              <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-neutral-800">
+                <li>
+                  Medication ({p.orderCycleDisplay.replace(/^Every /, "")}{" "}
+                  supply)
+                </li>
+                <li>Medical consultation ($0)</li>
+                <li>Shipping (Free)</li>
+              </ul>
+              <p className="mt-2 text-xs text-neutral-600">
+                Mirrors checkout / PDP value stack so renewals reinforce the same
+                story.
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-neutral-200 p-3">
               <p className="text-xs font-semibold uppercase text-neutral-500">
-                Charges on this order
+                Renewal timeline
               </p>
-              <p className="mt-1 text-neutral-800">
-                Date charged: Jan 12, 2026 · ${p.orderPrice.toFixed(2)} · Renewal
-                #4
+              <ul className="mt-3 space-y-2 border-l-2 border-emerald-200 pl-4">
+                {p.renewalTimeline.map((row, i) => (
+                  <li
+                    key={i}
+                    className={
+                      row.status === "Scheduled"
+                        ? "font-semibold text-emerald-900"
+                        : row.status === "Paid"
+                          ? "font-medium text-neutral-900"
+                          : "text-neutral-800"
+                    }
+                  >
+                    <span className="text-neutral-600">{row.label}</span> ·{" "}
+                    {row.date} · ${p.orderPrice.toFixed(2)} · {row.status}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-lg border border-neutral-200 p-3">
+              <p className="text-xs font-semibold uppercase text-neutral-500">
+                Charge history (this subscription)
               </p>
-              <p className="mt-1 text-xs text-neutral-500">
-                Renewal # is not “1st/2nd payment” unless true financing product.
+              <div className="mt-2 overflow-x-auto">
+                <table className="w-full min-w-[280px] text-left text-xs">
+                  <thead>
+                    <tr className="border-b border-neutral-200 text-neutral-600">
+                      <th className="py-1.5 pr-2 font-medium">Date</th>
+                      <th className="py-1.5 pr-2 font-medium">Amount</th>
+                      <th className="py-1.5 font-medium">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-neutral-100 text-neutral-800">
+                    {p.renewalTimeline
+                      .filter((r) => r.status !== "Scheduled")
+                      .map((row, i) => (
+                        <tr key={i}>
+                          <td className="py-1.5 pr-2">{row.date}</td>
+                          <td className="py-1.5 pr-2">
+                            ${p.orderPrice.toFixed(2)}
+                          </td>
+                          <td className="py-1.5">{row.status}</td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-2 text-xs text-neutral-500">
+                Renewal index labels engineering-friendly counts; not “1st/2nd
+                payment” unless true financing.
               </p>
             </div>
+
             <div className="rounded-lg border border-dashed border-emerald-200 bg-emerald-50/40 p-3 text-xs">
               <p className="font-semibold text-emerald-900">Fulfillment</p>
               <p className="mt-1 text-neutral-700">
@@ -243,6 +323,49 @@ export function OrderDetailWireframe() {
                 in data/product-pricing.md.
               </p>
             </div>
+
+            <div className="rounded-lg border border-orange-200 bg-orange-50/40 p-3 text-sm">
+              <p className="text-xs font-semibold uppercase text-orange-900">
+                Subscription management
+              </p>
+              <ul className="mt-2 space-y-2 text-neutral-800">
+                <li>
+                  <button
+                    type="button"
+                    className="text-left text-sky-800 underline decoration-sky-800/40"
+                  >
+                    Cancel subscription
+                  </button>
+                  <span className="ml-1 text-xs font-medium text-orange-800">
+                    (? flow TBD)
+                  </span>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className="text-left text-sky-800 underline decoration-sky-800/40"
+                  >
+                    Contact support
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className="text-left text-sky-800 underline decoration-sky-800/40"
+                  >
+                    Start reassessment
+                  </button>
+                  <span className="ml-1 text-xs text-orange-800">
+                    (? show when prescription window requires; link per{" "}
+                    <code className="rounded bg-white px-1 text-[10px]">
+                      data/reassessment-links.md
+                    </code>
+                    )
+                  </span>
+                </li>
+              </ul>
+            </div>
+
             <div className="flex flex-wrap gap-2">
               <button
                 type="button"
@@ -307,6 +430,40 @@ export function OrderDetailWireframe() {
               </td>
               <td className="p-3 text-xs">§B Home, §J Protein powder</td>
             </tr>
+            <tr>
+              <td className="p-3 font-mono">5</td>
+              <td className="p-3">Prescription validity</td>
+              <td className="p-3">
+                Show script window via <EngTag>prescriptionCycle</EngTag>; do not
+                replace billing cadence
+              </td>
+              <td className="p-3 text-xs">Design context §11; Step 4 spec</td>
+            </tr>
+            <tr>
+              <td className="p-3 font-mono">6</td>
+              <td className="p-3">What&apos;s included</td>
+              <td className="p-3">
+                Value stack (medication, consult, shipping) like checkout
+              </td>
+              <td className="p-3 text-xs">Step 4 · order detail</td>
+            </tr>
+            <tr>
+              <td className="p-3 font-mono">7</td>
+              <td className="p-3">Renewal timeline + charge history</td>
+              <td className="p-3">
+                Past charges + this order + scheduled next; table for scanability
+              </td>
+              <td className="p-3 text-xs">Step 4 · renewal clarity</td>
+            </tr>
+            <tr>
+              <td className="p-3 font-mono">8</td>
+              <td className="p-3">Cancel / support / reassessment</td>
+              <td className="p-3">
+                Management block; cancel + reassessment marked ? until product
+                locks flows
+              </td>
+              <td className="p-3 text-xs">Step 4 · management</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -322,10 +479,31 @@ export function OrderDetailWireframe() {
           </li>
           <li>No “Per Month” as primary billing label for cycle-based SKUs.</li>
           <li>
+            Subscription summary includes status,{" "}
+            <EngTag>prescriptionCycle</EngTag> end date (script context), and
+            separated billing cadence.
+          </li>
+          <li>
+            What&apos;s included lists medication supply length, $0 consult, free
+            shipping (checkout parity).
+          </li>
+          <li>
+            Renewal timeline shows prior renewals, this order, and scheduled next
+            charge with amounts.
+          </li>
+          <li>
+            Charge history table lists past and current paid rows for this
+            subscription.
+          </li>
+          <li>
             Charge date / renewal index labeled clearly; not installment copy
             unless product is financed.
           </li>
           <li>Fulfillment (ship/track) separated from billing summary.</li>
+          <li>
+            Subscription management exposes cancel, support, and reassessment
+            entry points (proposals flagged ? where needed).
+          </li>
           <li>
             CTAs consistent: View subscription vs View product detail (Patient
             Portal v2 Figma frames §H).
