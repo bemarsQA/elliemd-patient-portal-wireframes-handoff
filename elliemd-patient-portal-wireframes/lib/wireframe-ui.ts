@@ -2,28 +2,28 @@
  * Shared classes aligned to patient portal wireframe reference:
  * compact toggles; labels left of stacks.
  */
-/** Top nav links: same density and shape as wfToggle (compact, subtle radius). */
+/** Top nav links: fill only when active; no border; light shadow on hover. */
 export const wfNav = {
   active:
-    "inline-flex shrink-0 items-center justify-center rounded bg-[#141B34] px-2 py-1 text-center text-[11px] font-medium leading-tight text-white",
+    "inline-flex shrink-0 items-center justify-center rounded bg-[#141B34] px-2 py-1 text-center text-[11px] font-medium leading-tight text-white transition-shadow duration-150 hover:shadow-sm",
   inactive:
-    "inline-flex shrink-0 items-center justify-center rounded border border-neutral-200 bg-white px-2 py-1 text-center text-[11px] font-medium leading-tight text-neutral-800 shadow-none hover:border-neutral-300",
+    "inline-flex shrink-0 items-center justify-center rounded bg-transparent px-2 py-1 text-center text-[11px] font-medium leading-tight text-neutral-800 transition-shadow duration-150 hover:shadow-sm",
 } as const;
 
-/** Review toggles: tight padding, small type, subtle radius (not chunky pills). */
+/** Review toggles: same interaction pattern as nav. */
 export const wfToggle = {
   active:
-    "w-full rounded bg-[#141B34] px-2 py-1 text-left text-[11px] font-medium leading-tight text-white",
+    "w-full rounded bg-[#141B34] px-2 py-1 text-left text-[11px] font-medium leading-tight text-white transition-shadow duration-150 hover:shadow-sm",
   inactive:
-    "w-full rounded border border-neutral-200 bg-white px-2 py-1 text-left text-[11px] font-medium leading-tight text-neutral-800 shadow-none hover:border-neutral-300",
+    "w-full rounded bg-transparent px-2 py-1 text-left text-[11px] font-medium leading-tight text-neutral-800 transition-shadow duration-150 hover:shadow-sm",
 } as const;
 
 /** Device row: icon + label, same density as wfToggle */
 export const wfToggleDevice = {
   active:
-    "inline-flex w-full items-center gap-1.5 rounded bg-[#141B34] px-2 py-1 text-left text-[11px] font-medium leading-tight text-white",
+    "inline-flex w-full items-center gap-1.5 rounded bg-[#141B34] px-2 py-1 text-left text-[11px] font-medium leading-tight text-white transition-shadow duration-150 hover:shadow-sm",
   inactive:
-    "inline-flex w-full items-center gap-1.5 rounded border border-neutral-200 bg-white px-2 py-1 text-left text-[11px] font-medium leading-tight text-neutral-800 shadow-none hover:border-neutral-300",
+    "inline-flex w-full items-center gap-1.5 rounded bg-transparent px-2 py-1 text-left text-[11px] font-medium leading-tight text-neutral-800 transition-shadow duration-150 hover:shadow-sm",
 } as const;
 
 /** Column label in control bar (uppercase, sits left of the button stack). */
