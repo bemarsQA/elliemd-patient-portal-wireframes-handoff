@@ -44,7 +44,7 @@ export function WireframeChrome({ children }: { children: React.ReactNode }) {
             </span>
           </div>
           <nav
-            className="-mr-1 flex max-w-[min(100%,42rem)] flex-wrap items-center justify-end gap-x-0.5 gap-y-1 sm:max-w-none sm:flex-nowrap sm:gap-x-1"
+            className="-mr-1 flex max-w-[min(100%,42rem)] flex-wrap items-center justify-end gap-1 sm:max-w-none sm:flex-nowrap"
             aria-label="Wireframe sections"
           >
             {NAV.map(({ href, label }) => {

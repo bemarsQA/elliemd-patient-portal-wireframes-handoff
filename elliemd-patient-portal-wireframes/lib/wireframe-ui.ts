@@ -2,11 +2,12 @@
  * Shared classes aligned to patient portal wireframe reference:
  * compact toggles; labels left of stacks.
  */
+/** Top nav links: same density and shape as wfToggle (compact, subtle radius). */
 export const wfNav = {
   active:
-    "inline-flex shrink-0 items-center rounded-full bg-[#141B34] px-3.5 py-2 text-[13px] font-medium leading-none text-white",
+    "inline-flex shrink-0 items-center justify-center rounded bg-[#141B34] px-2 py-1 text-center text-[11px] font-medium leading-tight text-white",
   inactive:
-    "inline-flex shrink-0 items-center px-3 py-2 text-[13px] font-normal leading-none text-neutral-500 transition-colors hover:text-neutral-900",
+    "inline-flex shrink-0 items-center justify-center rounded border border-neutral-200 bg-white px-2 py-1 text-center text-[11px] font-medium leading-tight text-neutral-800 shadow-none hover:border-neutral-300",
 } as const;
 
 /** Review toggles: tight padding, small type, subtle radius (not chunky pills). */
