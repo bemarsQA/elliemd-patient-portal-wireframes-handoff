@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { wfNav } from "@/lib/wireframe-ui";
 
 const NAV = [
   { href: "/", label: "Overview" },
@@ -18,32 +19,32 @@ export function WireframeChrome({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-white text-[14px] text-[#141B34]">
       <header className="border-b border-neutral-200 bg-white">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-3">
-          <div className="flex min-w-0 flex-1 flex-wrap items-center gap-3 sm:gap-4">
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
+          <div className="flex min-w-0 items-center gap-3">
             <Link
               href="/"
-              className="flex shrink-0 items-center gap-2"
+              className="flex shrink-0 items-center"
               aria-label="EllieMD wireframes home"
             >
               <Image
                 src="/ellie-md-logo.png"
                 alt="ellie MD logo"
-                width={152}
-                height={40}
-                className="h-9 w-auto"
+                width={132}
+                height={36}
+                className="h-8 w-auto"
                 priority
               />
             </Link>
             <span
-              className="hidden h-6 w-px shrink-0 bg-neutral-200 sm:block"
+              className="hidden h-5 w-px shrink-0 bg-neutral-200 sm:block"
               aria-hidden
             />
-            <span className="hidden min-w-0 text-sm text-neutral-600 sm:inline">
+            <span className="hidden min-w-0 text-sm text-neutral-400 sm:inline">
               Patient Portal · Wireframes
             </span>
           </div>
           <nav
-            className="flex flex-wrap justify-end gap-1 text-sm"
+            className="-mr-1 flex max-w-[min(100%,42rem)] flex-wrap items-center justify-end gap-x-0.5 gap-y-1 sm:max-w-none sm:flex-nowrap sm:gap-x-1"
             aria-label="Wireframe sections"
           >
             {NAV.map(({ href, label }) => {
@@ -55,11 +56,7 @@ export function WireframeChrome({ children }: { children: React.ReactNode }) {
                 <Link
                   key={href}
                   href={href}
-                  className={
-                    active
-                      ? "rounded-full bg-[#141B34] px-3 py-1.5 font-medium text-white"
-                      : "rounded-full px-3 py-1.5 text-neutral-600 hover:bg-neutral-100"
-                  }
+                  className={active ? wfNav.active : wfNav.inactive}
                 >
                   {label}
                 </Link>
@@ -68,7 +65,7 @@ export function WireframeChrome({ children }: { children: React.ReactNode }) {
           </nav>
         </div>
       </header>
-      <div className="mx-auto w-full max-w-5xl px-4">{children}</div>
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">{children}</div>
     </div>
   );
 }
